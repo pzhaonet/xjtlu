@@ -1,0 +1,141 @@
+---
+title: "R Markdown for Slides:"
+subtitle: "A xaringan template for XJTLU"
+author: "\r`r 'Peng Zhao'`"
+date: "\r`r '2020-05-27'`"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+
+# when offline
+    # chakra: libs/remark-latest.min.js # when offline
+
+# css    
+    css:
+      - default
+      - default-fonts
+      - style/extra.css 
+## animation      
+      - "https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css"  # animation in transition, https://github.com/yihui/xaringan/issues/184. 
+      # - style/animate.min.css animation when offline
+
+# title slide    
+    # seal: false # disable the title slide
+    
+# nature
+    nature:
+      beforeInit: "style/macro.js" # macros, such as controlling the figure size
+      highlightStyle: github
+## highlight code lines that start with *, or are wrapped in {{ }}, or have trailing comments #<<
+      highlightLines: true
+## slide number
+      countIncrementalSlides: false
+      # slideNumberFormat: "%current%"                  # 12
+      # slideNumberFormat: "Slide %current% of %total%" # Slide 12 of 42
+      # slideNumberFormat: "%current%/%total%"           # 12/42
+      # slideNumberFormat: | # progress bar instead of slide numbers
+      #   <div class="progress-bar-container">
+      #     <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
+      #     </div>
+      #   </div>`
+## screen ratio 
+      ratio: '16:9'
+## clock
+      # countdown: 60000
+## autoplay
+      # autoplay: 1000
+## title slide
+      # titleSlideClass: [top, left, inverse]
+
+# other html elements
+    # includes:
+    #   after_body: html/webcam.html
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+```{r, guide, include=FALSE}
+# references
+# library(RefManageR)
+# BibOptions(check.entries = FALSE, 
+#            bib.style = "authoryear", 
+#            cite.style = 'alphabetic', 
+#            style = "markdown",
+#            hyperlink = FALSE, 
+#            dashed = FALSE)
+# bibfile <- 'resource/mindr.bib'
+# if(!file.exists(bibfile)) beginr::bib(pkg = c('mindr', 'xaringan'), bibfile = bibfile)
+# myBib <- ReadBib(bibfile, check = FALSE)
+# ct <- function(bib) {
+#   Cite(myBib, bib, .opts = list(cite.style = "authoryear", hyperlink =  "mindr.html#37"))
+# # Citet()
+# # Citep()
+# # AutoCite()
+# }
+# # `r ct('R-mindr')`
+# # ```{r, 'ref', results='asis', echo=FALSE}
+# # PrintBibliography(myBib)
+# # ```
+
+# anamation
+# animation <- c("bounce","shake","wobble","bounceInLeft","bounceOutDown","fadeIn","fadeInLeftBig","fadeInUpBig","fadeOutLeft","fadeOutUp","flipOutX","rotateIn","rotateInUpRight","rotateOutUpLeft","rollIn","zoomInLeft","zoomOutDown","slideInDown","slideOutDown","heartBeat","flash","headShake","jello","bounceInRight","bounceOutLeft","fadeInDown","fadeInRight","fadeOut","fadeOutLeftBig","fadeOutUpBig","flipOutY","rotateInDownLeft","rotateOut","rotateOutUpRight","rollOut","zoomInRight","zoomOutLeft","slideInLeft","slideOutLeft","pulse","swing","bounceIn","bounceInUp","bounceOutRight","fadeInDownBig","fadeInRightBig","fadeOutDown","fadeOutRight","flipInX","lightSpeedIn","rotateInDownRight","rotateOutDownLeft","hinge","zoomIn","zoomInUp","zoomOutRight","slideInRight","slideOutRight","rubberBand","tada","bounceInDown","bounceOut","bounceOutUp","fadeInLeft","fadeInUp","fadeOutDownBig","fadeOutRightBig","flipInY","lightSpeedOut","rotateInUpLeft","rotateOutDownRight","jackInTheBox","zoomInDown","zoomOut","zoomOutUp","slideInUp","slideOutUp")
+# # bounceIn fadeIn retateIn slideInRight
+
+# backgroun image
+# # background-image: url(resource/x.jpg)
+# # background-size: 100px
+# # background-size: cover
+# # background-position: 95% 5%
+
+# class
+# # class: inverse, right, bottom, animated, slideInRight
+
+# columns
+# # .pull-left[
+# # ]
+# # .left-column[ ]	side bar
+# # .center[]
+
+# text, pre-defined in extra.css
+# # .red[&#9785;]
+# # .small[unhappy...]
+# # .large[happy...]
+# # insert symbols: <https://www.toptal.com/designers/htmlarrows/>
+
+# table
+# # .small[the plain markdown syntax for a table]
+# # <div style="font-size: tiny">` `</div>
+# # .small[`knitr::kable`]
+
+# code highlight
+# # code #<<
+
+# image
+# # [![:width 100%](resource/*.jpg)](resource/*.jpg)
+# # ![:height 50px](resource/*.png)
+
+# footnote
+# # <sup>*</sup>
+# # .footnote[[*]
+# # <https://xuer.pzhao.org>
+# # ]
+
+# note
+# # ???
+
+
+# ppt to xaringan
+# devtools::install_github("datalorax/slidex")
+# library(slidex)
+# pptx <- system.file("examples", "slidedemo.pptx", package = "slidex")
+# convert_pptx(path = pptx, author = "Daniel Anderson")
+
+# xaringan to pdf
+# install.packages("webshot")
+# library(webshot)
+# install_phantomjs()
+# file_name <- paste0("file://", normalizePath("my_xaringan.html"))
+# webshot(file_name, "mypdf.pdf")
+```

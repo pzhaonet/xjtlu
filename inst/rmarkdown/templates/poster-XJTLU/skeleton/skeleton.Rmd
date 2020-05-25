@@ -1,0 +1,96 @@
+---
+title: "R Markdown Template for XJTLU Posters"
+author: ["<span class=\"presenter\">Peng Zhao<sup>1</sup></span>, Someone Else<sup>1, 2</sup><ol class=\"affiliations\"><li>Xi'an Jiaotong-Liverpool University, Suzhou, China</li><li>Far Far Away</li></ol>"]
+output:
+  drposter::drposter_poster:
+    self_contained: false
+    css: style/custom.css
+    fill_page: true
+---
+
+```{r set, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE) 
+```
+
+# {.col-3}
+
+## Conclusions
+
+Thi is an amazing poster template. Every XJTLUer must use it.
+
+## Background
+
+This template comes from the R 'drposter' package and modified by Peng Zhao. 
+
+## Methods
+
+Use the R drposter package on the shoulder of R Markdown.
+
+```{r load, results='hide', echo=TRUE}
+data("iris")
+```
+
+# {.col-3}
+
+
+## Results and Discussions
+
+### Numbers
+Insert a number into the text. For example, the mean sepal width is `r mean(iris$Sepal.Width)`.
+
+### Tables
+
+An interactive table:
+```{r}
+DT::datatable(
+  iris, 
+  fillContainer = FALSE, options = list(pageLength = 4)
+)
+```
+
+## Equations
+
+Use $\LaTeX$ equations.
+
+$$ \sigma  = \text e ^ {(\frac{\sum_{i = 1}^{n} (\ln \frac{x_i}{G})^2)}{n})^{0.5}} $$
+
+# {.col-3}
+
+## Plot
+
+
+
+
+
+Insert an interactive graph created by scripts (if you have installed the R package 'leaflet").
+
+```{r, fig.cap='Plot a diagram.', fig.width=13, fig.height==13, eval=require('leaflet')}
+library(leaflet)
+leaflet() %>% addTiles() %>% setView(120.735, 31.275, zoom = 16)
+```
+
+## Insert an image
+
+Insert an external image.
+
+```{r fig2, fig.cap='Insert an image.'}
+knitr::include_graphics('resource/openr-logo-white.png')
+```
+
+# {.col-2}
+
+## Acknowledgements
+
+Many thanks to Ben Bucior for developing [drposter](https://github.com/bbucior/drposter).
+
+# {.col-2}
+
+## Contact {style="--header-color:#000544; --other-color-for-h2-gradient:#CD63C3;"}
+
+<p class="qr">
+![QR code](resource/qr-pzhao.org.png)
+Scan the QR code for the author's website.
+</p>
+
+- &#9993; peng.zhao@xjtlu.edu.cn
+

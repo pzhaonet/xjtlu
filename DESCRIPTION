@@ -1,0 +1,23 @@
+Package: xjtlu
+Version: 0.0.0
+Date: 2020-05-24
+Title: A Collection of Apps for Xi'an Jiaotong-Liverpool University
+Authors@R: c(
+    person("Peng", "Zhao", role = c("aut", "cre"), email = "pzhao@pzhao.net")
+  )
+Maintainer: Peng Zhao <pzhao@pzhao.net>
+Depends: R (>= 3.5.0)
+Imports: 
+  rmarkdown,
+  knitr
+Remotes:
+  pzhaonet/drposter
+Suggests:
+Description: Poster and slides templates. Abbreviations.
+License: GPL-3 | file LICENSE
+URL: https://github.com/pzhaonet/xjtlu
+BugReports: https://github.com/pzhaonet/xjtlu/issues
+SystemRequirements: pandoc (>= 2.0; https://pandoc.org)
+RoxygenNote: 7.1.0
+NeedsCompilation: no
+LazyData: true
