@@ -4,6 +4,8 @@
 
 ```r
 remotes::install_github("pzhaonet/xjtlu")
+remotes::install_github("pzhaonet/drposter")
+install.packages("xaringan")
 ```
 
 
@@ -22,14 +24,20 @@ get_fullname("XJTLU")
 get_fullname(c("XJTLU", "ENV", "HoD"))
 ```
 
+## Plot a campus map of XJTLU
+
+```r
+get_map()
+```
+
 ## XJTLU poster template
 
-RStudio， File - New File - R Markdown - From Template - XJTLU poster
+RStudio: File - New File - R Markdown - From Template - XJTLU poster
 
 
 ## XJTLU slides template
 
-RStudio， File - New File - R Markdown - From Template - XJTLU slides
+RStudio: File - New File - R Markdown - From Template - XJTLU slides
 
 # License
 

@@ -8,8 +8,10 @@ Authors@R: c(
 Maintainer: Peng Zhao <pzhao@pzhao.net>
 Depends: R (>= 3.5.0)
 Imports: 
+  knitr,
+  leaflet,
   rmarkdown,
-  knitr
+  xaringan
 Remotes:
   pzhaonet/drposter
 Suggests:
