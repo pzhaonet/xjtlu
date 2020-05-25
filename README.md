@@ -1,14 +1,35 @@
 # xjtlu: An R Package for Xi'an Jiaotong-Liverpool University
 
+# Installation
 
 ```r
 remotes::install_github("pzhaonet/xjtlu")
+```
+
+
+# Load
+
+```r
 require("xjtlu")
+```
+
+# Functions
+
+## Get full name of an abbreviation
+
+```r
 get_fullname("XJTLU")
 get_fullname(c("XJTLU", "ENV", "HoD"))
 ```
 
-RStudio， File - New File - R Markdown - From Template - XJTLU poster / slides
+## XJTLU poster template
+
+RStudio， File - New File - R Markdown - From Template - XJTLU poster
+
+
+## XJTLU slides template
+
+RStudio， File - New File - R Markdown - From Template - XJTLU slides
 
 # License
 
