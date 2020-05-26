@@ -41,26 +41,26 @@ get_fullname(c("XJTLU", "ENV", "HoD"))
 get_map()
 ```
 
-![](inst2/image/map-1.png)<!-- -->
+![](https://pzhaonet.github.io/xjtlu/docs/image/map-1.png)<!-- -->
 
 ``` r
 # in English
 get_map(english = TRUE)
 ```
 
-![](inst2/image/map-2.png)<!-- -->
+![](https://pzhaonet.github.io/xjtlu/docs/image/map-2.png)<!-- -->
 
 ## XJTLU poster template
 
 RStudio: File - New File - R Markdown - From Template - XJTLU poster
 
-![](inst2/image/poster.jpg)
+<img src="https://pzhaonet.github.io/xjtlu/docs/image/poster.jpg" width="60%" />
 
 ## XJTLU slides template
 
 RStudio: File - New File - R Markdown - From Template - XJTLU slides
 
-![](inst2/image/slides.jpg)
+<img src="https://pzhaonet.github.io/xjtlu/docs/image/slides.jpg" width="60%" />
 
 # License
 

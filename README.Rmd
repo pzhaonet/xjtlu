@@ -8,9 +8,10 @@ always_allow_html: true
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(
   echo = TRUE,
-  fig.path = "inst2/image/",
+  fig.path = "docs/image/",
   warning = FALSE
 )
+knitr::opts_knit$set(base.url='https://pzhaonet.github.io/xjtlu/')
 ```
 
 # Installation
@@ -51,13 +52,17 @@ get_map(english = TRUE)
 
 RStudio: File - New File - R Markdown - From Template - XJTLU poster
 
-![](inst2/image/poster.jpg)
+```{r, echo=FALSE, out.width="60%"}
+knitr::include_graphics("docs/image/poster.jpg")
+```
 
 ## XJTLU slides template
 
 RStudio: File - New File - R Markdown - From Template - XJTLU slides
 
-![](inst2/image/slides.jpg)
+```{r, echo=FALSE, out.width="60%"}
+knitr::include_graphics("docs/image/slides.jpg")
+```
 
 # License
 
