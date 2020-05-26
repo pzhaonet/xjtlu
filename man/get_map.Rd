@@ -4,7 +4,10 @@
 \alias{get_map}
 \title{Plot a campus map of XJTLU}
 \usage{
-get_map()
+get_map(english = FALSE)
+}
+\arguments{
+\item{english}{logical. Display English on the map.}
 }
 \value{
 a map
@@ -14,4 +17,5 @@ Plot a campus map of XJTLU
 }
 \examples{
 get_map()
+get_map(english = TRUE)
 }

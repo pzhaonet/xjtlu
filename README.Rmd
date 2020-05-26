@@ -1,18 +1,30 @@
-xjtlu: An R Package for Xi’an Jiaotong-Liverpool University
-================
-2020-05-26
+---
+title: "xjtlu: An R Package for Xi'an Jiaotong-Liverpool University"
+date: "`r Sys.Date()`"
+output: github_document
+always_allow_html: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE,
+  fig.path = "inst2/image/",
+  warning = FALSE
+)
+```
 
 # Installation
 
-``` r
+```r
 remotes::install_github("pzhaonet/xjtlu")
 remotes::install_github("pzhaonet/drposter")
 install.packages("xaringan")
 ```
 
+
 # Load
 
-``` r
+```{r, message=FALSE}
 require("xjtlu")
 ```
 
@@ -20,35 +32,20 @@ require("xjtlu")
 
 ## Get full name of an abbreviation
 
-``` r
+```{r}
 get_fullname("XJTLU")
-```
-
-    ## XJTLU: Xi'an Jiaotong-Liverpool University
-
-``` r
 get_fullname(c("XJTLU", "ENV", "HoD"))
 ```
 
-    ## XJTLU: Xi'an Jiaotong-Liverpool University
-    ## ENV: Department of Environmental Science
-    ## HoD: Head of Department
-
 ## Plot a campus map of XJTLU
 
-``` r
+```{r map}
 # in Chinese
 get_map()
-```
 
-![](inst2/image/map-1.png)<!-- -->
-
-``` r
 # in English
 get_map(english = TRUE)
 ```
-
-![](inst2/image/map-2.png)<!-- -->
 
 ## XJTLU poster template
 
