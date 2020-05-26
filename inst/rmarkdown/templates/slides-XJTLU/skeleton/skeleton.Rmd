@@ -54,6 +54,7 @@ output:
 
 ```{r setup, include=FALSE}
 options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE) 
 ```
 
 ```{r, guide, include=FALSE}
@@ -139,3 +140,27 @@ options(htmltools.dir.version = FALSE)
 # file_name <- paste0("file://", normalizePath("my_xaringan.html"))
 # webshot(file_name, "mypdf.pdf")
 ```
+
+## Insert an interactive table
+
+```{r, eval=require('xjtlu')}
+require(xjtlu)
+DT::datatable(
+  abbreviation, 
+  fillContainer = FALSE, options = list(pageLength = 8)
+)
+```
+
+---
+
+## Insert an interactive image
+
+```{r, fig.cap='Plot a diagram.', eval=require('xjtlu'), fig.width=14, fig.height= 6}
+get_map(english = TRUE)
+```
+
+---
+
+## Insert an equation
+
+$$ \sigma  = \text e ^ {(\frac{\sum_{i = 1}^{n} (\ln \frac{x_i}{G})^2)}{n})^{0.5}} $$

@@ -26,8 +26,9 @@ This template comes from the R 'drposter' package and modified by Peng Zhao.
 
 Use the R drposter package on the shoulder of R Markdown.
 
-```{r load, results='hide', echo=TRUE}
-data("iris")
+```{r load, results='hide', echo=TRUE, eval=require('xjtlu')}
+require("xjtlu")
+data("abbreviation")
 ```
 
 # {.col-3}
@@ -35,15 +36,13 @@ data("iris")
 
 ## Results and Discussions
 
-### Numbers
-Insert a number into the text. For example, the mean sepal width is `r mean(iris$Sepal.Width)`.
-
-### Tables
+Insert a number into the text. For example, there are `r ncol(abbreviation)` abbreviations.
 
 An interactive table:
-```{r}
+
+```{r, eval=require('xjtlu')}
 DT::datatable(
-  iris, 
+  abbreviation, 
   fillContainer = FALSE, options = list(pageLength = 4)
 )
 ```
@@ -58,15 +57,10 @@ $$ \sigma  = \text e ^ {(\frac{\sum_{i = 1}^{n} (\ln \frac{x_i}{G})^2)}{n})^{0.5
 
 ## Plot
 
-
-
-
-
 Insert an interactive graph created by scripts (if you have installed the R package 'leaflet").
 
-```{r, fig.cap='Plot a diagram.', fig.width=13, fig.height==13, eval=require('leaflet')}
-library(leaflet)
-leaflet() %>% addTiles() %>% setView(120.735, 31.275, zoom = 16)
+```{r, fig.cap='Plot a diagram.', fig.width=13, fig.height==13, eval=require('xjtlu')}
+get_map()
 ```
 
 ## Insert an image

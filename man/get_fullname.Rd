@@ -4,7 +4,7 @@
 \alias{get_fullname}
 \title{Get the full name of an abbreviation}
 \usage{
-get_fullname(x = c("XJTLU", "AMO"))
+get_fullname(x = "")
 }
 \arguments{
 \item{x}{short name}
@@ -16,5 +16,5 @@ full name
 Get the full name of an abbreviation
 }
 \examples{
-get_fullname()
+get_fullname(c("XJTLU", "HoD", "ENV"))
 }

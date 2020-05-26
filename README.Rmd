@@ -8,10 +8,10 @@ always_allow_html: true
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(
   echo = TRUE,
-  fig.path = "docs/image/",
+  fig.path = "docs/image/", # saving plots
   warning = FALSE
 )
-knitr::opts_knit$set(base.url='https://pzhaonet.github.io/xjtlu/')
+knitr::opts_knit$set(base.url='https://pzhaonet.github.io/xjtlu/') # for image links. Set the github page as /master/
 ```
 
 # Installation
@@ -40,7 +40,7 @@ get_fullname(c("XJTLU", "ENV", "HoD"))
 
 ## Plot a campus map of XJTLU
 
-```{r map}
+```{r map, out.width="60%"}
 # in Chinese
 get_map()
 

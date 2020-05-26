@@ -5,8 +5,9 @@
 #' @return full name
 #' @export
 #'
-#' @examples get_fullname()
-get_fullname <- function(x = c("XJTLU", "AMO")){
+#' @examples get_fullname(c("XJTLU", "HoD", "ENV"))
+get_fullname <- function(x = ""){
+  if(x == "") xjtlu::abbreviation
   y <- xjtlu::abbreviation[match(x, abbreviation$short), ]
   cat(apply(y, 1, paste, collapse = ": "), sep = "\n")
 }

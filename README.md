@@ -41,14 +41,14 @@ get_fullname(c("XJTLU", "ENV", "HoD"))
 get_map()
 ```
 
-![](https://pzhaonet.github.io/xjtlu/docs/image/map-1.png)<!-- -->
+<img src="https://pzhaonet.github.io/xjtlu/docs/image/map-1.png" width="60%" />
 
 ``` r
 # in English
 get_map(english = TRUE)
 ```
 
-![](https://pzhaonet.github.io/xjtlu/docs/image/map-2.png)<!-- -->
+<img src="https://pzhaonet.github.io/xjtlu/docs/image/map-2.png" width="60%" />
 
 ## XJTLU poster template
 
