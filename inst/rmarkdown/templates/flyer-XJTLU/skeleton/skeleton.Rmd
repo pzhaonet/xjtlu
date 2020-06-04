@@ -1,0 +1,52 @@
+---
+title: "R Markdown for XJTLU Flyers"
+output:
+  drposter::drposter_poster:
+    self_contained: false
+    css: style/custom.css
+    fill_page: true
+---
+
+```{r set, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE) 
+```
+
+# {.col-1}
+
+<iframe seamless src="resource/nw.html" width="100%" height="800" frameborder="0"></iframe>
+
+
+# {.col-1}
+
+## Event
+
+Something about the event.
+
+# {.col-32}
+
+## Speaker
+
+Something about the speaker.
+
+# {.col-3}
+
+　
+　
+```{r}
+knitr::include_graphics("resource/xuer_weidian.png")
+```
+
+# {.col-2}
+
+## Time and Location
+
+- Time:
+- Location:
+
+
+# {.col-2}
+
+## Contact {style="--header-color:#000544; --other-color-for-h2-gradient:#CD63C3;"}
+
+- peng.zhao@xjtlu.edu.cn
+- https://xuer.pzhao.org
