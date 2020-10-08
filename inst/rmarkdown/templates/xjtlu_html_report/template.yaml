@@ -1,0 +1,3 @@
+name: XJTLU Report in HTML
+description: XJTLU R markdown template for HTML report. Adapted from <https://github.com/holtzy/epuRate>.
+create_dir: false

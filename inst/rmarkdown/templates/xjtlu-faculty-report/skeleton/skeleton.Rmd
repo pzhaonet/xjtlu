@@ -1,0 +1,158 @@
+---
+title: "Faculty Report for Activities from September 2019 to August 2020"
+author: "Peng Zhao"
+# date: "5 April, 2019"
+email: "peng.zhao@xjtlu.edu.cn"
+
+output: 
+  bookdown::pdf_book:
+    base_format: rosr::statement_svm # for using bookdown features like \@ref()
+    # latex_engine: xelatex # enable this line for Chinese
+  bookdown::html_document2: default
+  bookdown::word_document2: default
+# documentclass: ctexart # enable this line for Chinese
+# indentfirst: false # enable this line for Chinese indent
+geometry: margin=1in
+# bibliography: rosr.bib
+biblio-style: apalike
+link-citations: yes
+fontfamily: mathpazo
+fontsize: 11pt
+
+# revise-package: changes # enable this line for using `~~~old text~~~ +++new text+++` to revise and `render_revised()` to render. invalid for ctexart.
+header-includes:
+   # - \usepackage{ulem}   # enable this line for using `~~text~~` to break through texts.
+   - \linespread{1.05}
+---
+
+# Research (40%) 
+
+## 1. Publications
+
+List all papers and books published or in press. Please indicate if you are first or corresponding author and your % contribution. Indicate your undergraduate, graduate and postdocs with a *.
+
+### a. Exceptional papers
+
+Substantial papers in a major internationally recognized interdisciplinary journals (Science, Nature, or PNAS). 
+
+### b. Top-Tier disciplinary papers
+
+Substantial papers in a major internationally recognized journals (Ecology Letters, Cell, Lancet, Chemical Reviews, Advanced materials, etc.)
+
+### c. Significant papers
+
+Substantial empirical, theoretical or review papers in recognized, edited journals or chapters in edited books. 
+
+### d. Open-access journals
+
+Journals with high acceptance and a lower level of peer-review that focuses only on the competency of the science (PLOS One, Science of the Total Environment, Land Development & Degradation, etc.)
+
+### e. Minor papers
+
+Published in un-reviewed, local or regional journals. 
+
+### f. Peer-reviewed letters to the editor
+
+## 2. Patents
+
+### a. Awarded
+
+### b. Submitted
+
+## 3. Presentations
+
+List all invited symposium, national/international meeting presentations, invited departmental seminars, and popular talks. 
+
+### a. Invited symposium, national or international plenary, etc.
+
+### b. National/International meeting presentation (Please specify poster or oral presentation)
+
+### c. Invited Departmental Seminar at XJTLU or other University
+
+### d. Student Presentations at conferences
+
+### e. Popular Talk
+
+## 4. Active Grants
+
+List the Name of the Grant, the Funding Agency, $ amount, and years funded.
+
+### a. Major Grants
+
+Active grants funded by competitive NSF or other national or international granting agencies. If multi-PI include % effort.
+
+### b. Minor Grants
+
+Active small, or noncompetitive grants. If multi-PI include % effort.
+
+### c. Institutional Grants
+
+Active grants funded by XJTLU. If multi-PI include % effort.
+
+## 5.  Grant Proposals Submitted
+
+List the Name of the grant, the Funding agency, $ amount, and years funded.
+
+### a. Major Grants
+
+Active grants funded by competitive NSF or other national or international granting agencies. If multi-PI include % effort.
+
+### b. Minor Grants
+
+Active small, or noncompetitive grants. If multi-PI include % effort.
+
+### c. Institutional Grants
+
+Active grants funded by XJTLU. If multi-PI include % effort.
+
+## 6.  Research Service
+
+Please list service on grant panels, editorial board service, holding office in a professional society, number of manuscripts and grant proposals reviewed.
+
+## 7. Research Awards & Recognition
+
+Please list any research awards and recognition received.
+
+# Teaching (40%)
+
+## 8. Courses Taught
+
+Please list each course taught with the course name, course number, and enrollment.
+
+## 9.  Teaching Awards & Recognition
+
+Please list any teaching awards and recognition received.
+
+## 10. Efforts to improve teaching quality
+
+List Post Graduate Certificate in Teaching and Supporting Learning efforts in Higher Education.
+
+## 11. Graduate students graduated
+
+Please list the student names.
+
+## 12. Graduate students supervised
+
+Please list the student names.
+
+## 13. Surf & FYP & Independent Study Undergraduate 
+
+Please list the names and specify Surf, FYP, or Research. Also list all papers that undergraduates are co-author on.
+
+# Service (20%)
+
+## 14.  Service
+
+Please list all committees and service to the department and university and indicate if you were a chair or a member.
+
+## 15. Service Awards & Recognition
+
+Please list any service awards and recognition received.
+
+## 16.  Outreach
+
+Please list all outreach activities including the name of the outreach, a short description and approximate number of participants.
+
+## 17. Other
+
+Please list any other information regarding your activities.

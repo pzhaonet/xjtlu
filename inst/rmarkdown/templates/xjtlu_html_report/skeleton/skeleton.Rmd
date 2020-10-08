@@ -1,0 +1,75 @@
+---
+title: "R Markdown Template for XJTLU Reports"
+author: "[Dr. Peng Zhao](https://pzhao.org)"
+date: "`r format(Sys.time(), '%d %B %Y')`"
+mail: "peng.zhao@xjtlu.edu.cn"
+linkedin: ""
+twitter: ""
+github: "pzhaonet"
+home: "pzhao.org"
+logo: "xjtlu-logo_inverse-blue.png"
+output:
+  xjtlu::xjtlu_html_report:
+    toc: TRUE
+    number_sections: FALSE
+    code_folding: "hide"
+---
+
+```{r set, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE) 
+```
+
+# Background
+
+This template comes from the R 'holtzy/epuRate' package and modified by Dr. Peng Zhao. 
+
+# Methods
+
+## Packages
+
+Use the R "xjtlu" package on the shoulder of R Markdown.
+
+```{r load, results='hide', echo=TRUE, eval=require('xjtlu')}
+require("xjtlu")
+data("abbreviation")
+```
+
+## Equations
+
+
+$$ E = mc^2 $$
+
+# Results and Discussions
+
+## Numbers and tables
+
+Insert a number into the text. For example, there are `r ncol(abbreviation)` abbreviations.
+
+An interactive table:
+
+```{r, eval=require('xjtlu')}
+DT::datatable(
+  abbreviation, 
+  fillContainer = FALSE, options = list(pageLength = 4)
+)
+```
+
+
+## Plots and images
+
+Insert an interactive graph created by scripts (if you have installed the R package 'leaflet").
+
+```{r, fig.cap='Plot a diagram.', eval=require('xjtlu')}
+get_map()
+```
+
+Insert an external image.
+
+```{r fig2, fig.cap='Insert an image.'}
+knitr::include_graphics('xjtlu-logo_inverse-blue.png')
+```
+
+# Conclusions
+
+This is an amazing report template. Every XJTLUer must use it.
+
