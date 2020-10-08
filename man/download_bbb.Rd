@@ -4,21 +4,44 @@
 \alias{download_bbb}
 \title{Download video recodings from BBB}
 \usage{
-download_bbb(url, destfolder = ".", if_merge = FALSE)
+download_bbb(
+  url = NA,
+  camera_file = "webcams.webm",
+  desktop_file = "desktop.webm",
+  temp_file = "tmp.webm",
+  merged_file = NA
+)
 }
 \arguments{
-\item{url}{complete of the hyperlink of the webcam video}
+\item{url}{The complete hyperlink of the webcam video. If NA, only merge the given videos.}
 
-\item{destfolder}{destination folder}
+\item{camera_file}{The file name of the camera video.}
 
-\item{if_merge}{whether merge.}
+\item{desktop_file}{The file name of the desktop video.}
+
+\item{temp_file}{The file name of the temporary file.}
+
+\item{merged_file}{The file name of the merged file. If Na, do not merge.}
 }
 \value{
-downloaded video files
+downloaded and/or merge video files
 }
 \description{
 Download video recodings from BBB
 }
 \examples{
+# download one
 download_bbb("https://bbbload.xjtlu.edu.cn/presentation/4c0413f756243e7b71221b81e36488f80d15996c-1599613283607/video/webcams.webm")
+# batch download
+env203 <- function(video){
+  paste0("https://bbbload.xjtlu.edu.cn/presentation/4c0413f756243e7b71221b81e36488f80d15996c-", video,"/video/webcams.webm")
+}
+urls <- env203(c("1599613283607", "1602031837942", "1600822173907", "1600217953595"))
+for (i in 1:4) {
+  download_bbb(urls[i],
+               camera_file = paste0("cam", i, ".webm"),
+               desktop_file = paste0("desk", i, ".webm"),
+               temp_file = paste0("tmp", i, ".webm"),
+               merged_file = paste0("bbb', i, '.webm"))
+}
 }

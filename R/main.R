@@ -51,34 +51,55 @@ get_map <- function(english = FALSE){
 # 4c0413f756243e7b71221b81e36488f80d15996c-1602031837942
 #' Download video recodings from BBB
 #'
-#' @param destfolder destination folder
-#' @param url complete of the hyperlink of the webcam video
-#' @param if_merge whether merge.
+#' @param url The complete hyperlink of the webcam video. If NA, only merge the given videos.
+#' @param camera_file The file name of the camera video.
+#' @param desktop_file The file name of the desktop video.
+#' @param merged_file The file name of the merged file. If Na, do not merge.
+#' @param temp_file The file name of the temporary file.
 #'
-#' @return downloaded video files
+#' @return downloaded and/or merge video files
 #' @export
 #'
 #' @examples
+#' # download one
 #' download_bbb("https://bbbload.xjtlu.edu.cn/presentation/4c0413f756243e7b71221b81e36488f80d15996c-1599613283607/video/webcams.webm")
-download_bbb <- function(url, destfolder = ".", if_merge = FALSE){
-  id <- gsub("^.+presentation/(.+)/video/webcams.webm", "\\1", url)
-  url_desktop <- paste0("https://bbbload.xjtlu.edu.cn/presentation/", id, "/deskshare/deskshare.webm")
+#' # batch download
+#' env203 <- function(video){
+#'   paste0("https://bbbload.xjtlu.edu.cn/presentation/4c0413f756243e7b71221b81e36488f80d15996c-", video,"/video/webcams.webm")
+#' }
+#' urls <- env203(c("1599613283607", "1602031837942", "1600822173907", "1600217953595"))
+#' for (i in 1:4) {
+#'   download_bbb(urls[i],
+#'                camera_file = paste0("cam", i, ".webm"),
+#'                desktop_file = paste0("desk", i, ".webm"),
+#'                temp_file = paste0("tmp", i, ".webm"),
+#'                merged_file = paste0("bbb', i, '.webm"))
+#' }
+download_bbb <- function(url = NA,
+                         camera_file = "webcams.webm",
+                         desktop_file = "desktop.webm",
+                         temp_file = "tmp.webm",
+                         merged_file = NA){
+  if (!is.na(url)){
+    id <- gsub("^.+presentation/(.+)/video/webcams.webm", "\\1", url)
+    url_desktop <- paste0("https://bbbload.xjtlu.edu.cn/presentation/", id, "/deskshare/deskshare.webm")
 
-  message("Downloading the camera recoding...")
-  download.file(url = url, destfile =  file.path(destfolder, "webcams.webm"), method = "curl")
-  if (file.exists(file.path(destfolder, "webcams.webm"))) message("Camera recoding downloaded!")
+    message("Downloading the camera recoding...")
+    download.file(url = url, destfile = camera_file, method = "curl")
+    if (file.exists(camera_file)) message("Camera recoding downloaded!")
 
-  message("Downloading the shared desktop...")
-  download.file(url = url_desktop, destfile =  file.path(destfolder, "desktop.webm"), method = "curl")
-  if (file.exists(file.path(destfolder, "desktop.webm"))) message("Share desktop downloaded!")
+    message("Downloading the shared desktop...")
+    download.file(url = url_desktop, destfile =  desktop_file, method = "curl")
+    if (file.exists(desktop_file)) message("Share desktop downloaded!")
+  }
 
-  if (if_merge){
+  if (!is.na(merged_file)){
     message("Merging videos...")
-    system('ffmpeg -i desktop.webm -vf "movie=webcams.webm, scale=300:-1 [inner]; [in][inner] overlay=1000:500 [out]" tmp.webm')
-    system('ffmpeg -i tmp.webm -i webcams.webm -c copy bbb.webm')
-    if (file.exists(file.path(destfolder, "bbb.webm"))) {
+    system(paste0('ffmpeg -i ', desktop_file, ' -vf "movie=', camera_file,', scale=300:-1 [inner]; [in][inner] overlay=1000:500 [out]" ', temp_file))
+    system(paste0('ffmpeg -i ', temp_file,' -i ', camera_file, ' -c copy ', merged_file))
+    if (file.exists(merged_file)) {
       message("Videos merged!")
-      file.remove("tmp.webm")
+      file.remove(temp_file)
     }
   }
   message("Mission accomplished!")
