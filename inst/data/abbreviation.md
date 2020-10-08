@@ -67,6 +67,7 @@
 | SEID     | Suzhou Dushu Lake Science and Education and Innovation District |
 | SIP      | Suzhou Industrial Park                                       |
 | SIPEDI   | Suzhou Industrial Park Education Development Investment      |
+| SLTC’    | School Learning and Teaching Committee                       |
 | SMT      | Senior Management Team                                       |
 | SOFTA    | School of Film and TV Arts                                   |
 | SSLC     | Student-Staff Liaison Committee                              |
@@ -76,6 +77,7 @@
 | TDF      | Teaching Development Fund                                    |
 | ToR      | Terms of Reference                                           |
 | UG       | Undergraduate                                                |
+| ULTC     | University Learning and Teaching Committee                   |
 | UMC      | Marketing and Communications Office                          |
 | UoL      | University of Liverpool                                      |
 | UoL-AQSD | University of Liverpool Academic Quality Support Division    |
