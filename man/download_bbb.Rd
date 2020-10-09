@@ -32,16 +32,18 @@ Download video recodings from BBB
 \examples{
 # download one
 download_bbb("https://bbbload.xjtlu.edu.cn/presentation/4c0413f756243e7b71221b81e36488f80d15996c-1599613283607/video/webcams.webm")
-# batch download
-env203 <- function(video){
-  paste0("https://bbbload.xjtlu.edu.cn/presentation/4c0413f756243e7b71221b81e36488f80d15996c-", video,"/video/webcams.webm")
-}
-urls <- env203(c("1599613283607", "1602031837942", "1600822173907", "1600217953595"))
-for (i in 1:4) {
-  download_bbb(urls[i],
-               camera_file = paste0("cam", i, ".webm"),
-               desktop_file = paste0("desk", i, ".webm"),
-               temp_file = paste0("tmp", i, ".webm"),
-               merged_file = paste0("bbb', i, '.webm"))
+
+# batch download and merge
+urls <- c("https://bbbload.xjtlu.edu.cn/presentation/4c0413f756243e7b71221b81e36488f80d15996c-1599613283607/video/webcams.webm",
+          "https://bbbload.xjtlu.edu.cn/presentation/4c0413f756243e7b71221b81e36488f80d15996c-1602031837942/video/webcams.webm",
+          "https://bbbload.xjtlu.edu.cn/presentation/4c0413f756243e7b71221b81e36488f80d15996c-1600217953595/video/webcams.webm")
+for (i in 1:3) {
+  download_bbb(
+    urls[i],
+    camera_file = paste0("cam_chapter_", i, ".webm"),
+    desktop_file = paste0("desk_chapter_", i, ".webm"),
+    temp_file = paste0("tmp_chapter_", i, ".webm"),
+    merged_file = paste0("bbb_chapter_", i, ".webm")
+  )
 }
 }
