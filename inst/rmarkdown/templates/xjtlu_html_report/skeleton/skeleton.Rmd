@@ -13,6 +13,8 @@ output:
     toc: TRUE
     number_sections: FALSE
     code_folding: "hide"
+# bibliography: library.bib
+# biblio-style: apsr
 ---
 
 ```{r set, include=FALSE}
@@ -73,3 +75,4 @@ knitr::include_graphics('xjtlu-logo_inverse-blue.png')
 
 This is an amazing report template. Every XJTLUer must use it.
 
+# References
