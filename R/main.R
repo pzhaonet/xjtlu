@@ -48,14 +48,13 @@ get_map <- function(english = FALSE){
   }
 }
 
-# 4c0413f756243e7b71221b81e36488f80d15996c-1602031837942
-#' Download video recodings from BBB
+#' Download video recordings from BBB
 #'
 #' @param url The complete hyperlink of the webcam video. If NA, only merge the given videos.
-#' @param camera_file The file name of the camera video.
-#' @param desktop_file The file name of the desktop video.
+#' @param webcams_file The file name of the camera video.
+#' @param deskshare_file The file name of the desktop video.
 #' @param merged_file The file name of the merged file. If Na, do not merge.
-#' @param temp_file The file name of the temporary file.
+#' @param tmp_file The file name of the temporary file.
 #'
 #' @return downloaded and/or merge video files
 #' @export
@@ -71,49 +70,54 @@ get_map <- function(english = FALSE){
 #' for (i in 1:3) {
 #'   download_bbb(
 #'     urls[i],
-#'     camera_file = paste0("cam_chapter_", i, ".webm"),
-#'     desktop_file = paste0("desk_chapter_", i, ".webm"),
-#'     temp_file = paste0("tmp_chapter_", i, ".webm"),
+#'     webcams_file = paste0("cam_chapter_", i, ".webm"),
+#'     deskshare_file = paste0("desk_chapter_", i, ".webm"),
+#'     tmp_file = paste0("tmp_chapter_", i, ".webm"),
 #'     merged_file = paste0("bbb_chapter_", i, ".webm")
 #'   )
 #' }
 download_bbb <- function(url = NA,
-                         camera_file = "webcams.webm",
-                         desktop_file = "desktop.webm",
-                         temp_file = "tmp.webm",
+                         webcams_file = "webcams.webm",
+                         deskshare_file = "deskshare.webm",
+                         tmp_file = "tmp.webm",
                          merged_file = NA){
-  report <- data.frame(Mission = NULL, Start = NULL, End = NULL, Time = NULL)
+  report <- data.frame()
   if (!is.na(url)){
-    id <- gsub("^.+presentation/(.+)/video/webcams.webm", "\\1", url)
+    if (grepl("/", id)) id <- gsub(".+[=/]([a-z0-9]+-[a-z0-9]+).*", "\\1", id)
+    url_webcams <- paste0("https://bbbload.xjtlu.edu.cn/presentation/", id, "/video/webcams.webm")
     url_desktop <- paste0("https://bbbload.xjtlu.edu.cn/presentation/", id, "/deskshare/deskshare.webm")
 
     start_time <- Sys.time()
-    message(start_time, ": Downloading the camera recoding...")
-    download.file(url = url, destfile = camera_file, method = "curl")
+    message(start_time, ": Downloading the camera recording ", id, "...")
+    download.file(url = url_webcams, destfile = webcams_file, method = "curl")
     end_time <- Sys.time()
-    if (file.exists(camera_file)) message(end_time, ": Camera recoding downloaded!")
-    report <- rbind(report, c(camera_file, as.character(start_time), as.character(end_time), round(difftime(end_time, start_time, units = "min"), 1)))
+    if (file.exists(webcams_file)) message(end_time, ": Camera recording downloaded! ", id)
+    report <- rbind(report, c(webcams_file, as.character(start_time), as.character(end_time), round(difftime(end_time, start_time, units = "min"), 1)))
 
     start_time <- Sys.time()
-    message(start_time, ": Downloading the shared desktop...")
-    download.file(url = url_desktop, destfile =  desktop_file, method = "curl")
+    message(start_time, ": Downloading the shared desktop ", id, "...")
+    download.file(url = url_desktop, destfile =  deskshare_file, method = "curl")
     end_time <- Sys.time()
-    if (file.exists(desktop_file)) message(end_time, ": Share desktop downloaded!")
-    report <- rbind(report, c(desktop_file, as.character(start_time), as.character(end_time), round(difftime(end_time, start_time, units = "min"), 1)))
+    if (file.exists(deskshare_file)) message(end_time, ": Shared desktop downloaded! ", id)
+    report <- rbind(report, c(deskshare_file, as.character(start_time), as.character(end_time), round(difftime(end_time, start_time, units = "min"), 1)))
   }
 
   if (!is.na(merged_file)){
     start_time <- Sys.time()
-    message(start_time, ": Merging videos...")
-    system(paste0('ffmpeg -i ', desktop_file, ' -vf "movie=', camera_file,', scale=300:-1 [inner]; [in][inner] overlay=1000:500 [out]" ', temp_file))
-    system(paste0('ffmpeg -i ', temp_file,' -i ', camera_file, ' -c copy ', merged_file))
+    message(start_time, ": Merging videos ", ifelse(is.na(url), NULL, id), "...")
+
+    system(paste0('ffmpeg -i ', deskshare_file, ' -vf "movie=', webcams_file,', scale=300:-1 [inner]; [in][inner] overlay=1000:500 [out]" ', tmp_file))
+    system(paste0('ffmpeg -i ', tmp_file,' -i ', webcams_file, ' -c copy ', merged_file))
     end_time <- Sys.time()
     if (file.exists(merged_file)) {
-      message(Sys.time(), ": Videos merged!")
-      file.remove(temp_file)
+      message(Sys.time(), ": Videos merged!", ifelse(is.na(url), NULL, id))
+      file.remove(tmp_file)
       report <- rbind(report, c(merged_file, as.character(start_time), as.character(end_time), round(difftime(end_time, start_time, units = "min"), 1)))
     }
   }
   message(Sys.time(), ": Mission accomplished!")
-  if (nrow(report) > 0) print(report)
+  if (nrow(report) > 0) {
+    names(report) <- c("Mission", "Start", "End", "Elapse (min)")
+    print(report)
+  }
 }

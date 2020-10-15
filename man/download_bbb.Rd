@@ -2,24 +2,24 @@
 % Please edit documentation in R/main.R
 \name{download_bbb}
 \alias{download_bbb}
-\title{Download video recodings from BBB}
+\title{Download video recordings from BBB}
 \usage{
 download_bbb(
   url = NA,
-  camera_file = "webcams.webm",
-  desktop_file = "desktop.webm",
-  temp_file = "tmp.webm",
+  webcams_file = "webcams.webm",
+  deskshare_file = "deskshare.webm",
+  tmp_file = "tmp.webm",
   merged_file = NA
 )
 }
 \arguments{
 \item{url}{The complete hyperlink of the webcam video. If NA, only merge the given videos.}
 
-\item{camera_file}{The file name of the camera video.}
+\item{webcams_file}{The file name of the camera video.}
 
-\item{desktop_file}{The file name of the desktop video.}
+\item{deskshare_file}{The file name of the desktop video.}
 
-\item{temp_file}{The file name of the temporary file.}
+\item{tmp_file}{The file name of the temporary file.}
 
 \item{merged_file}{The file name of the merged file. If Na, do not merge.}
 }
@@ -27,7 +27,7 @@ download_bbb(
 downloaded and/or merge video files
 }
 \description{
-Download video recodings from BBB
+Download video recordings from BBB
 }
 \examples{
 # download one
@@ -40,9 +40,9 @@ urls <- c("https://bbbload.xjtlu.edu.cn/presentation/4c0413f756243e7b71221b81e36
 for (i in 1:3) {
   download_bbb(
     urls[i],
-    camera_file = paste0("cam_chapter_", i, ".webm"),
-    desktop_file = paste0("desk_chapter_", i, ".webm"),
-    temp_file = paste0("tmp_chapter_", i, ".webm"),
+    webcams_file = paste0("cam_chapter_", i, ".webm"),
+    deskshare_file = paste0("desk_chapter_", i, ".webm"),
+    tmp_file = paste0("tmp_chapter_", i, ".webm"),
     merged_file = paste0("bbb_chapter_", i, ".webm")
   )
 }
